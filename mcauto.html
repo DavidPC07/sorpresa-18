@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f14">
+<title>Vale por cena · McAuto</title>
+<style>
+  :root { --a: #ff6b3d; --b: #ffb23d; --bg: #0f0f14; --card: #fffdf8; --ink: #1c1b22; --muted: #6b6875; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    min-height: 100dvh; display: grid; place-items: center; padding: 24px 18px;
+    background: radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--a) 35%, var(--bg)) 0%, var(--bg) 60%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink); -webkit-font-smoothing: antialiased;
+  }
+  .ticket {
+    width: 100%; max-width: 380px; background: var(--card); border-radius: 22px;
+    position: relative; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04);
+    animation: in .7s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes in { from { opacity: 0; transform: translateY(24px) scale(.97); } to { opacity: 1; transform: none; } }
+  .top {
+    padding: 22px 24px 26px; border-radius: 22px 22px 0 0; color: #fff;
+    background: linear-gradient(135deg, var(--a), var(--b));
+    position: relative; overflow: hidden;
+  }
+  .top::after {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(-45deg, rgba(255,255,255,.07) 0 2px, transparent 2px 14px);
+  }
+  .meta { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: .22em; opacity: .95; }
+  .code { font-size: 11px; font-weight: 600; letter-spacing: .1em; padding: 4px 9px; border-radius: 99px; background: rgba(255,255,255,.22); }
+  .icon { font-size: 64px; line-height: 1; margin: 26px 0 14px; position: relative; z-index: 1; filter: drop-shadow(0 8px 14px rgba(0,0,0,.25)); }
+  h1 { font-size: 27px; line-height: 1.12; font-weight: 800; letter-spacing: -.01em; position: relative; z-index: 1; }
+  .cut { position: relative; height: 28px; }
+  .cut::before, .cut::after {
+    content: ""; position: absolute; top: 50%; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg); transform: translateY(-50%);
+  }
+  .cut::before { left: -14px; } .cut::after { right: -14px; }
+  .cut span { position: absolute; left: 22px; right: 22px; top: 50%; border-top: 2px dashed #e2ddd2; }
+  .body { padding: 6px 26px 8px; }
+  p { font-size: 17px; line-height: 1.6; color: #2d2b35; }
+  .foot {
+    margin: 22px 26px 0; padding: 16px 0 24px; border-top: 1px solid #eee8dc;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .foot strong { font-size: 14px; font-weight: 650; color: var(--ink); }
+  .stamp {
+    flex: none; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; text-align: center;
+    border: 2px solid var(--a); color: var(--a); font-size: 9px; font-weight: 800; letter-spacing: .08em; line-height: 1.15;
+    transform: rotate(-12deg); opacity: .85;
+  }
+  .barcode { height: 34px; margin: 0 26px 22px; border-radius: 4px; opacity: .8;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 9px, var(--ink) 9px 12px, transparent 12px 14px); }
+  @media (min-width: 600px) { h1 { font-size: 30px; } }
+  @media (prefers-reduced-motion: reduce) { .ticket { animation: none; } }
+</style>
+</head>
+<body>
+  <main class="ticket" role="article" aria-label="VALE POR CENA EN EL McAUTO">
+    <header class="top">
+      <div class="meta"><span class="label">REGALO • 18 AÑOS</span><span class="code">N.º 13</span></div>
+      <div class="icon" aria-hidden="true">🍔</div>
+      <h1>VALE POR CENA EN EL McAUTO</h1>
+    </header>
+    <div class="cut" aria-hidden="true"><span></span></div>
+    <section class="body"><p>Después de tanto ensayo toca reponer fuerzas. Pide lo que te apetezca que hoy invito yo y nos lo llevamos de tranqui a tu casa</p></section>
+    <footer class="foot"><strong>📍 Parada técnica obligatoria ahora mismo</strong><div class="stamp" aria-hidden="true">VÁLIDO<br>18</div></footer>
+    <div class="barcode" aria-hidden="true"></div>
+  </main>
+</body>
+</html>
